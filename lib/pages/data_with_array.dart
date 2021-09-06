@@ -35,7 +35,7 @@ class _DataWithArrayState extends State<DataWithArray> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Simple API Demo"),
+        title: Text("API with Array of Object"),
         backgroundColor: Colors.grey[800],
       ),
       body: dataReceived // checking condition for data received or not
@@ -58,19 +58,13 @@ class _DataWithArrayState extends State<DataWithArray> {
                   ),
                   Text(
                     "User Id : " + _dataWithArrayModel.data![0].id.toString(),
+                    // data contains array and we need to use null check to avoid errors.
                     style: TextStyle(
                       color: Colors.white,
                     ),
                   ),
                   Text(
-                    "User Id : " +
-                        _dataWithArrayModel.data![0].userId.toString(),
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                  Text(
-                    "Id : " + _dataWithArrayModel.data![0].id.toString(),
+                    "Id : " + _dataWithArrayModel.data![0].userId.toString(),
                     style: TextStyle(
                       color: Colors.white,
                     ),
