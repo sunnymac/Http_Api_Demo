@@ -11,8 +11,6 @@ import 'package:api_demo/models/simple_api_model.dart';
 This Page is for Simple Api. 
 Api Link : https://mocki.io/v1/be212c0f-4ff6-476a-a79c-d2227f45e43b
 Api have simple Key Value data.
-
-
 */
 
 class SimpleApi extends StatefulWidget {
