@@ -1,3 +1,4 @@
+import 'package:api_demo/pages/array_of_all_objects.dart';
 import 'package:api_demo/pages/array_of_objects.dart';
 import 'package:api_demo/pages/data_with_array.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +30,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("ALL API DEMO"),
+        title: Text(
+          "ALL API DEMO",
+        ),
+        centerTitle: true,
         backgroundColor: Colors.grey[800],
       ),
       backgroundColor: Colors.grey[600],
@@ -43,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Text(
                 "Click on Below Button to Fatch Data from API.",
                 style: TextStyle(
-                  color: Colors.amber,
+                  color: Colors.white,
                   fontSize: 18.0,
                 ),
               ),
@@ -52,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.grey[400],
+                  primary: Colors.grey[800],
                   padding: EdgeInsets.all(20),
                 ),
                 onPressed: () {
@@ -73,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.grey[400],
+                  primary: Colors.grey[800],
                   padding: EdgeInsets.all(20),
                 ),
                 onPressed: () {
@@ -83,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 },
                 child: Text(
-                  "API with Array of Object",
+                  "Data with Some Array",
                   style: TextStyle(
                     color: Colors.white,
                   ),
@@ -94,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.grey[400],
+                  primary: Colors.grey[800],
                   padding: EdgeInsets.all(20),
                 ),
                 onPressed: () {
@@ -104,7 +108,29 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 },
                 child: Text(
-                  "Simple API",
+                  "Array of Objects",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.grey[800],
+                  padding: EdgeInsets.all(20),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ArrayOfAllObjects()),
+                  );
+                },
+                child: Text(
+                  "Array of All Objects",
                   style: TextStyle(
                     color: Colors.white,
                   ),

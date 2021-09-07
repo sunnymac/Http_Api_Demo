@@ -2,31 +2,32 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-import 'package:api_demo/models/data_with_array.dart';
+import 'package:api_demo/models/array_of_all_objects_model.dart';
 
 /*
 @Date : 06-September-2021
 @Author : Sunny Mac
 
 This Page is for Data Object with Array.. 
-Api Link : https://mocki.io/v1/8cfbca97-215c-452c-bddd-443dbcb62966
+Api Link : https://mocki.io/v1/108118f4-1860-43f8-b000-a0ad46db49fb
 Api have Different objects and some object contains some array as value.
 
 */
 
-class DataWithArray extends StatefulWidget {
-  const DataWithArray({Key? key}) : super(key: key);
+class ArrayOfAllObjects extends StatefulWidget {
+  const ArrayOfAllObjects({Key? key}) : super(key: key);
 
   @override
-  _DataWithArrayState createState() => _DataWithArrayState();
+  _ArrayOfAllObjectsState createState() => _ArrayOfAllObjectsState();
 }
 
-class _DataWithArrayState extends State<DataWithArray> {
+class _ArrayOfAllObjectsState extends State<ArrayOfAllObjects> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[600],
       appBar: AppBar(
-        title: Text("Data With Array"),
+        title: Text("Array of All Objects"),
         backgroundColor: Colors.grey[800],
       ),
       body: Container(
@@ -96,15 +97,15 @@ class _DataWithArrayState extends State<DataWithArray> {
   }
 }
 
-Future<DataWithArrayModel> getData() async {
+Future<ArrayOfAllObjectsModel> getData() async {
   var url = Uri.parse(
-      "https://mocki.io/v1/8cfbca97-215c-452c-bddd-443dbcb62966"); //url of api
+      "https://mocki.io/v1/108118f4-1860-43f8-b000-a0ad46db49fb"); //url of api
 
   var response = await http.get(url);
   if (response.statusCode == 200) {
     var jsonResponse = jsonDecode(response.body);
     print(jsonResponse.toString());
-    return DataWithArrayModel.fromJson(jsonResponse);
+    return ArrayOfAllObjectsModel.fromJson(jsonResponse);
   } else {
     print("Fetch data fail");
     throw Exception("Failed!");

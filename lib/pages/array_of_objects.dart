@@ -24,6 +24,11 @@ class _ArrayOfObjectsState extends State<ArrayOfObjects> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[600],
+      appBar: AppBar(
+        title: Text("Array of Objects"),
+        backgroundColor: Colors.grey[800],
+      ),
       body: Container(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -48,6 +53,7 @@ class _ArrayOfObjectsState extends State<ArrayOfObjects> {
                         itemBuilder: (context, index) {
                           return Container(
                             child: Card(
+                              color: Colors.grey[800],
                               clipBehavior: Clip.antiAliasWithSaveLayer,
                               elevation: 15,
                               child: Padding(
@@ -60,12 +66,15 @@ class _ArrayOfObjectsState extends State<ArrayOfObjects> {
                                       snapshot.data[index].title.toString(),
                                       style: TextStyle(
                                         fontSize: 20.0,
-                                        color: Colors.grey,
+                                        color: Colors.white,
                                       ),
                                     ),
                                     Text(
                                       snapshot.data[index].desc.toString(),
-                                      style: TextStyle(fontSize: 15.0),
+                                      style: TextStyle(
+                                        fontSize: 15.0,
+                                        color: Colors.white54,
+                                      ),
                                     ),
                                   ],
                                 ),
