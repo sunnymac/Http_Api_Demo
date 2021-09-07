@@ -1,3 +1,4 @@
+import 'package:api_demo/pages/array_of_objects.dart';
 import 'package:api_demo/pages/data_with_array.dart';
 import 'package:flutter/material.dart';
 import 'pages/simple_api_page.dart';
@@ -78,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => JsonObjectArray()),
+                    MaterialPageRoute(builder: (context) => DataWithArray()),
                   );
                 },
                 child: Text(
@@ -96,7 +97,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   primary: Colors.grey[400],
                   padding: EdgeInsets.all(20),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ArrayOfObjects()),
+                  );
+                },
                 child: Text(
                   "Simple API",
                   style: TextStyle(

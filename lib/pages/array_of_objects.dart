@@ -2,26 +2,25 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-import 'package:api_demo/models/data_with_array.dart';
-
+import 'package:api_demo/models/array_of_objects_model.dart';
 /*
 @Date : 06-September-2021
 @Author : Sunny Mac
 
-This Page is for Data Object with Array.. 
-Api Link : https://mocki.io/v1/8cfbca97-215c-452c-bddd-443dbcb62966
-Api have Different objects and some object contains some array as value.
+This Page display array of objects.
+Api Link : https://mocki.io/v1/9a167bed-0d4e-4a3b-8ce4-f51b11c27548
+Api have array of different objects.
 
 */
 
-class DataWithArray extends StatefulWidget {
-  const DataWithArray({Key? key}) : super(key: key);
+class ArrayOfObjects extends StatefulWidget {
+  const ArrayOfObjects({Key? key}) : super(key: key);
 
   @override
-  _DataWithArrayState createState() => _DataWithArrayState();
+  _ArrayOfObjectsState createState() => _ArrayOfObjectsState();
 }
 
-class _DataWithArrayState extends State<DataWithArray> {
+class _ArrayOfObjectsState extends State<ArrayOfObjects> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +44,7 @@ class _DataWithArrayState extends State<DataWithArray> {
                     if (snapshot.data != null) {
                       return ListView.builder(
                         shrinkWrap: true,
-                        itemCount: snapshot.data.data.length,
+                        itemCount: snapshot.data.length,
                         itemBuilder: (context, index) {
                           return Container(
                             child: Card(
@@ -58,15 +57,14 @@ class _DataWithArrayState extends State<DataWithArray> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Text(
-                                      snapshot.data.data[index].title
-                                          .toString(),
+                                      snapshot.data[index].title.toString(),
                                       style: TextStyle(
                                         fontSize: 20.0,
                                         color: Colors.grey,
                                       ),
                                     ),
                                     Text(
-                                      snapshot.data.data[index].desc.toString(),
+                                      snapshot.data[index].desc.toString(),
                                       style: TextStyle(fontSize: 15.0),
                                     ),
                                   ],
@@ -88,15 +86,18 @@ class _DataWithArrayState extends State<DataWithArray> {
   }
 }
 
-Future<DataWithArrayModel> getData() async {
+Future<List<ArrayOfObjectsModel>> getData() async {
   var url = Uri.parse(
-      "https://mocki.io/v1/8cfbca97-215c-452c-bddd-443dbcb62966"); //url of api
+      "https://mocki.io/v1/9a167bed-0d4e-4a3b-8ce4-f51b11c27548"); //url of api
 
   var response = await http.get(url);
   if (response.statusCode == 200) {
     var jsonResponse = jsonDecode(response.body);
     print(jsonResponse.toString());
-    return DataWithArrayModel.fromJson(jsonResponse);
+    Iterable list = jsonResponse;
+    return list
+        .map((singlearray) => ArrayOfObjectsModel.fromJson(singlearray))
+        .toList();
   } else {
     print("Fetch data fail");
     throw Exception("Failed!");
