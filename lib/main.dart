@@ -1,7 +1,6 @@
+import 'package:api_demo/pages/data_with_array.dart';
 import 'package:flutter/material.dart';
 import 'pages/simple_api_page.dart';
-
-import 'pages/data_with_array.dart';
 
 /*
 @Date : 06-September-2021
@@ -79,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => DataWithArray()),
+                    MaterialPageRoute(builder: (context) => JsonObjectArray()),
                   );
                 },
                 child: Text(
